@@ -2,8 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-
-    Decision of the buyer (Period {{ subsession.round_number }} of {{ Constants.num_rounds }}))
+   Entscheidung des Käufers  (Runde {{ subsession.round_number }} von {{ Constants.num_rounds }}))
 {% endblock %}
 
 {% block content %}
@@ -53,21 +52,21 @@ $(document).ready(function() {
 }
 </style>
 
- <p>In the following table you will be able to see each one of the packages with its respective private valuation.</p>
+ <p>In der folgenden Tabelle können Sie die einzelnen Angebote mit der entsprechenden privaten Bewertung sehen.</p>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Package</th>
-                <th scope="col">Value</th>
+                <th scope="col">Angebot</th>
+                <th scope="col">Wert</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Your ID is</td>
+                <td>Ihre ID: </td>
                 <td>{{ player.id_in_group }}</td>
             </tr>
             <tr>
-                <td colspan="2"><b>Private valuations for packages</b></td>
+                <td colspan="2"><b>Private Bewertung für die Angebote</b></td>
             </tr>
             {% for pac, val in pac_val.items %}
             <tr>
@@ -78,23 +77,23 @@ $(document).ready(function() {
         </tbody>
     </table>
 
-    <p>On this page you will be able to see the complete list of package offers with their respective prices. Remember,
-        in order to purchase a package, it must be priced lower than or equal to the private value you received for that
-        package or the transaction will be canceled.</p>
+    <p>Auf dieser Seite können Sie die vollständige Liste der Angebote mit ihren jeweiligen Preisen sehen. Denken Sie daran:
+        Um ein Angebot kaufen zu können, muss der Preis niedriger oder genau so hoch sein wie der private Wert,
+        en Sie für das Angebot erhalten haben ansonsten wird die Transaktion storniert.</p>
 
 
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Seller ID</th>
-                <th scope="col">Offer</th>
+                <th scope="col">Verkäufer ID</th>
+                <th scope="col">Angebot</th>
             </tr>
         </thead>
         <tbody>
 {%for p in group.get_players %}
     {% if p.role == "seller" %}
             <tr>
-                <td>Seller {{p.id_in_group}}</td>
+                <td>Verkäufer {{p.id_in_group}}</td>
                 <td>
                     <div class="card border-dark mb-3" style="max-width: 18rem;">
                         <h3 class="card-header">{{p.get_seller_package_display}}</h3>
@@ -113,7 +112,7 @@ $(document).ready(function() {
                             <h5 class="card-title">{{p.ask_price_fin|c}} </h5>
                             {% elif p.com_practice == 4 %}
                             <h5 class="card-title">
-                               {{ p.drip|c}} <a href = # data-toggle="tooltip" title = "Total Price = {{p.drip|c}} + 1 ECU  ={{p.ask_price_fin}} " data-original-title="Default tooltip">*</a>
+                               {{ p.drip|c}} <a href = # data-toggle="tooltip" title = "Gesamtpreis = {{p.drip|c}} + 1 ECU = {{p.ask_price_fin}} " data-original-title="Default tooltip">*</a>
                             </h5>
                             {% else %}
                             <h5 class="card-title">{{p.ask_price_fin}} </h5>
@@ -128,19 +127,12 @@ $(document).ready(function() {
         </tbody>
         </table>
 
-    <p>Remember that you have the ability to report the untruthful use of commercial practices by a seller. If you
-        believe that a seller has used the commercial practices untruthfully, please check that seller on the next
-        page.</p>
-
-    <p>If at least 3 buyers report the same seller for using a commercial practice untruthfully, the seller will have
-        to pay a fine. This fine will be 6 ECU plus 2 ECU for each additional buyer who reports it. The amount of
-        the fine will be divided equally among the buyers who reported the seller.</p>
-
-    <p> Would you like to report a seller? Reporting will cost you 1 ECU that will be deducted from your initial
-    endowment </p>
+<p>Denken Sie daran, dass Sie die wahrheitswidrige Anwendung von Handelspraktiken durch einen Verkäufer melden können. Wenn Sie glauben, dass ein Verkäufer eine Handelspraxis wahrheitswidrig genutzt hat, geben Sie diesen Verkäufer auf der nächsten Seite an.
+    Wenn mindestens 3 Käufer denselben Verkäufer für die wahrheitswidrige Anwendung einer Handelspraxis melden, muss der Verkäufer eine Strafe zahlen. Diese Strafe beträgt 6 ECU zuzüglich 2 ECU für jeden weiteren Käufer, der ihn meldet.
+    Die Summe wird gleichmäßig unter den Käufern aufgeteilt, die den Verkäufer melden.
+    Möchten Sie einen Verkäufer melden? Eine Meldung kostet Sie 1 ECU, die Ihnen von Ihrem Startkapital abgezogen wird.
     <div class = "form-inline">{{form.report}} </div>
-
-    <p>Once you click on the "Buy" button, you will be see the next page where you can report a seller if you chose to.</p>
+</p>
 
 {{ form.my_seller.errors }}
 
