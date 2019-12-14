@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Decision of the seller (Period {{ subsession.round_number }} of {{ Constants.num_rounds }})
+    Entscheidung des Verkäufers (Runde {{ subsession.round_number }} von {{ Constants.num_rounds }})
 {% endblock %}
 
 {% block content %}
@@ -10,25 +10,25 @@
 
         <tbody>
         <tr>
-                <td>Your seller ID is:</td>
+                <td>Ihre Verkäufer-ID:</td>
                 <td> {{player.id_in_group}} </td>
         </tr>
             <tr>
-                <td>The package you are going to sell is:</td>
+                <td>Das Angebot, das Sie verkaufen:</td>
                 <td> {{player.get_seller_package_display}} </td>
             </tr>
             <tr>
-                <td>The cost of this package is: </td>
+                <td>Kosten dieses Angebots: </td>
                 <td> {{player.seller_valuation |c}}</td>
             </tr>
             <tr>
-                <td>Please set the price at which you want to sell this package in the following box: <br>
-                Remember that for you to make a profit you must sell the package at a higher price than its cost.</td>
+                <td>Bitte geben Sie den Preis, zu dem Sie dieses Angebot verkaufen wollen, in das folgende Kästchen ein: <br>
+                Denken Sie daran, dass Sie das Angebot zu einem Preis verkaufen müssen, der die Kosten übersteigt, um Profit zu machen.</td>
                 <td><div class = "form-inline"> {{ form.ask_price_ini}} &nbsp; ECU</div></td>
             </tr>
             <tr>
-                <td>Would you like to see the complete list of offers in the package market, including prices? <br>
-                    This action will cost you {{Constants.see_list_cost}} that will be deducted from your initial endowment. </td>
+                <td>Möchten Sie die vollständige Liste an Angeboten auf dem Markt sehen, einschließlich der Preise? <br>
+                    Diese Aktion kostet {{Constants.see_list_cost}} ECU der Ihnen von Ihrem Startkapital abgezogen wird. </td>
                 <td>{{ form.see_list }}</td>
 
             </tr>
@@ -36,8 +36,9 @@
     </table>
 
 
-    <p>Please click on the "Next" button to see the complete list of offers and prices in the market and to define the
-        final price of the package you are going to sell.</p>
+    <p>Bitte klicken Sie auf die Schaltfläche „Weiter“,
+        um die vollständige Liste an Angeboten und Preisen auf dem Markt zu sehen und den finalen Preis des Angebots zu definieren,
+        das Sie verkaufen.</p>
 
     {% next_button %}
 {% endblock %}
