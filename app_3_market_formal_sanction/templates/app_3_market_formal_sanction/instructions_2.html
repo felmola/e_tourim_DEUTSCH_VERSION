@@ -10,6 +10,48 @@
 {% endblock %}
 
 {% block content %}
+<script>
+$(document).ready(function() {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>
+
+<style>
+    .tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+</style>
+
+
+{% block content %}
     {% if player.role == "seller" %}
     <p>Ihnen wurde die Rolle des Verkäufers zugewiesen, die Sie während der 5 Verhandlungsrunden behalten werden.
         Sie können pro Runde nur ein Pauschalangebot verkaufen.
