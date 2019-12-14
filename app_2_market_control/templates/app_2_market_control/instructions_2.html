@@ -3,83 +3,89 @@
 
 {% block title %}
     {% if player.role == "seller" %}
-        Decision of the seller (Period {{ subsession.round_number }} of {{ Constants.num_rounds }})
+       Entscheidung des Verkäufers (Rund {{ subsession.round_number }} von {{ Constants.num_rounds }})
     {% else %}
-        Decision of the buyer (Period {{ subsession.round_number }} of {{ Constants.num_rounds }})
+        Entscheidung des Käufers (Rund {{ subsession.round_number }} von {{ Constants.num_rounds }})
     {% endif %}
 {% endblock %}
 
 {% block content %}
     {% if player.role == "seller" %}
-    <p>You were assigned to the role of seller. Remember that you will keep this role during the 5 trading rounds. You
-        will be able to sell only one package per trading round. The computer will randomly assign you one of the 5
-        available packages for you to sell in the market. Keep in mind that other sellers may sell the same package as
-        you. Additionally, you will be given a "value" of that package. This value represents the cost you would incur
-        if you were to close a transaction.</p>
+    <p>Ihnen wurde die Rolle des Verkäufers zugewiesen, die Sie während der 5 Verhandlungsrunden behalten werden.
+        Sie können pro Runde nur ein Pauschalangebot verkaufen.
+        Der Computer wird Ihnen zufällig eines der 5 verfügbaren Angebote für den Verkauf auf dem Markt zuteilen.
+        Denken Sie daran, dass andere Verkäufer möglicherweise dasselbe Angebote verkaufen wie Sie.
+        Zusätzlich wird Ihnen ein "Wert" für dieses Angebot zugeteilt.
+        Dieser Wert entspricht den Kosten, die Ihnen entstehen, wenn Sie eine Transaktion abschließen..</p>
 
-    <p>Keep in mind that the costs are private, that is, only you know this number. Neither the other sellers nor the
-        buyers know this information. In total there are 5 types of tourist packages whose only difference will be the
-        destination: Berlin, Madrid, Vienna, Paris and Rome. You will only receive one of these and its respective
-        cost.</p>
+    <p>Diese Kosten sind privat, das heißt, nur Sie kennen die Summe. Weder die Verkäufer noch die Käufer kennen den Wert.
+        Insgesamt gibt es 5 touristische Pauschalangebote, die sich nur durch die Destination unterscheiden:
+        Berlin, Madrid, Wien, Paris und Rom. Sie erhalten nur eines von diesen sowie die entstehenden Kosten..</p>
 
-    <p>You will have to fix a price for the package that was assigned to you. This price must be higher than the cost
-        of the package. Your earnings will be calculated as the difference between the price you set and the cost of the
-        package. If you fail to complete a transaction, you will not incur any costs, but you will not make any profit
-        either. Think of it this way, let's suppose you have a chance to get the package in question, and if you manage.
-        to sell it, you'll earn the difference. The cost is what you would have to pay to get the package. If the cost
-        is 50 ECU and you manage to sell the package for 70 ECU, then your profit would be 20 ECU (plus the initial
-        endowment of {{ Constants.endowment }} ECU). If you do not sell the package, your profit would be zero (plus the initial
-        endowment of {{ Constants.endowment }} ECU), i.e. you would not incur in any costs and would not receive any income.</p>
+    <p>Sie müssen für das Angebot, das Ihnen zugeteilt wurde, einen Preis festlegen.
+        Der Preis muss über den Kosten für das Angebot liegen. Ihr Verdienst wird aufgrund der Differenz zwischen dem von Ihnen festgelegtem Preis und den Kosten des Angebots errechnet.
+        Wenn Sie keine Transaktion abschließen entstehen Ihnen keine Kosten, Sie generieren aber auch keinen Profit.
+        Ein Beispiel: Nehmen wir an, Sie haben eine Chance, das besagte Angebot zu erhalten und Sie verdienen die Differenz, wenn es Ihnen gelingt, es zu verkaufen.
+        Wenn die Kosten 50 ECU beträgt und es Ihnen gelingt, das Angebot für 70 ECU zu verkaufen, beträgt Ihr Profit 20 ECU plus (plus der Startkapital von {{ Constants.endowment }} ECU) .
+        Wenn Sie das Angebot nicht verkaufen, beträgt Ihr Profit 0 ECU (plus der Startkapital  von {{ Constants.endowment }} ECU)) , d. h. Sie haben keine Kosten und erhalten kein Einkommen.
+    </p>
 
-    <p>Let's see another example:</p>
+    <p>Lassen Sie uns ein anderes Beispiel ansehen:</p>
 
-    <p>Suppose the cost of your package is 30 ECU and you manage to sell the package at a price of 50 ECU. You will then
-        earn 50 ECU - 30 ECU = 20 ECU (plus the initial endowment of {{ Constants.endowment }} ECU). If you fail to
-        close a transaction, you will not incur in any no cost nor profit, i.e. your profit will be 0 ECU (plus the initial
-        endowment of {{ Constants.endowment }} ECU)</p>
+    <p>Nehmen wir an, die Kosten Ihres Angebots belaufen sich auf 30 ECU und es gelingt Ihnen, das Angebot für einen Preis von 50 ECU zu verkaufen.
+        Sie verdienen dann 50 ECU - 30 ECU = 20 ECU (plus der Startkapital  von {{ Constants.endowment }} ECU)).
+        Wenn es Ihnen nicht gelingt, eine Transaktion abzuschließen, generieren Sie weder Kosten noch Profit, d. h. Ihr Profit betrögt 0 ECU.
+        (plus der Startkapital  von {{ Constants.endowment }} ECU)).
+    </p>
 
-    <p>It is important to note that two buyers can select the same offer, but only one of them will complete the
-        transaction. The one who makes the decision to buy the package the fastest will be the one who completes the
-        transaction with you.</p>
+    <p>Hierbei ist wichtig, dass zwei Käufer dasselbe Angebot wählen können, aber nur eine/r die Transaktion abschließen kann.
+        Wer sich als Erster entscheidet, das Angebot zu kaufen, schließt die Transaktion mit Ihnen ab.</p>
 
-    <p>Please click on the "Next" button to see the package you are going to sell and its cost </p>
+    <p>Zusätzlich können Sie eine Handelspraxis wählen, um Ihr Angebot für den Markt attraktiver zu machen:
+        Es gibt drei Handelspraktiken, und wenn Sie diese auswählen, werden Sie dem Käufer zum Zeitpunkt des Abschließens der Transaktion angezeigt.
+        Berücksichtigen Sie aber, dass diese Handelspraktiken jeweils wahrheitsgemäß oder wahrheitswidrig verwendet werden können.</p>
+
+    <p>Bitte klicken Sie auf die Schaltfläche „Weiter“, um das Angebot, das Sie verkaufen werden, und dessen Kosten zu sehen</p>
+
 
     {% else %}
-    <p>You were assigned to the role of buyer. Remember that you will keep this role during the 5 trading rounds.
-        You will be able to buy only one package per trading round. The computer will give you a "value" for each of the
-        packages you will find for sale in the market. This value represents how much you value that package if you were
-        to close a transaction. In total there are 5 types of tourist packages whose only difference will be the
-        destination: Berlin, Madrid, Vienna, Paris and Rome. You will only receive five values, one for each package.</p>
+    <p>Ihnen wurde die Rolle des Käufers zugewiesen, die Sie während der 5 Verhandlungsrunden behalten werden.
+        Sie können pro Runde nur ein Pauschalangebot kaufen.
+        Der Computer wird Ihnen einen "Wert" für jedes Angebot zuteilen, das auf dem Markt zum Verkauf steht.
+        Dieser Wert steht für den Wert, den Sie dem Angebot zuteilen, wenn Sie kurz vor dem Abschluss einer Transaktion stehen.
+        Insgesamt gibt es 5 touristische Pauschalangebote, die sich nur durch die Destination unterscheiden:
+        Berlin, Madrid, Wien, Paris und Rom. Sie erhalten nur fünf Werte, einen für jedes Angebot.</p>
 
-    <p>Please note that the values are private, i.e. only you know this numbers. Neither the other buyers nor the
-        sellers know this information.</p>
+    <p>Diese Werte sind privat, das heißt, nur Sie kennen die Summe. Weder die Käufer noch die Verkäufer kennen den Wert.</p>
 
-    <p>You will be shown a list of all package offers in the market and their respective prices. To close a transaction,
-        you must select one and only one of the packages in the market. Your earnings will be calculated as the
-        difference between your valuation and the price at which you purchased the package. If you fail to complete a
-        transaction, you won’t make any profit (plus the initial endowment of {{ Constants.endowment }} ECU). </p>
+    <p>Ihnen wird eine Liste aller Angebote auf dem Markt und die jeweiligen Preise angezeigt.
+        Um eine Transaktion abzuschließen müssen Sie ein, und wirklich nur ein, Angebot auf dem Markt auswählen.
+        Ihr Verdienst wird aufgrund der Differenz zwischen Ihrem ausgewählten Wert und dem Preis, zu dem Sie dieses Angebot gekauft haben, errechnet.
+        Wenn Sie keine Transaktion abschließen, machen Sie keinen Profit (plus der Startkapital  von {{ Constants.endowment }} ECU).</p>
 
-    <p>Think of it this way, suppose you have the ability to resell each of the five packages in question, and if you
-        manage to get one, you will earn the difference. The value is what you would receive when you resell the
-        package. If the value is 70 ECU and you manage to get the package at a price of 50 ECU, then your profit would be
-        20 ECU (plus the initial endowment of {{ Constants.endowment }} ECU). If you do not succeed in buying the
-        package, your profit would be zero, i.e. you would not pay any price and would not receive any income (except
-    for the initial endowment of {{ Constants.endowment }} ECU).</p>
+    <p>Ein Beispiel: Nehmen wir an, Sie haben die Möglichkeit, jedes der besagten Angebote weiterzuverkaufen, und wenn
+        Sie eines bekommen, verdienen Sie die Differenz. Der Wert ist die Summe, die Sie erhalten würden, wenn Sie das
+        Angebot weiterverkaufen. Wenn der Wert 70 ECU beträgt und es Ihnen gelingt, das Angebot für 50 ECU zu kaufen, beträgt Ihr Profit 20 ECU
+        (plus der Startkapital von {{ Constants.endowment }} ECU).
+        Wenn es Ihnen nicht gelingt, das Angebot zu kaufen, beträgt Ihr Profit 0 ECU ,
+        d. h. Sie bezahlen nichts und erhalten kein Einkommen (außer dem Startkapital von {{ Constants.endowment }} ECU).</p>
 
-    <p>Let's see another example:</p>
+    <p>Lassen Sie uns ein anderes Beispiel ansehen:</p>
 
-    <p>Suppose that the value for the package you decide to buy is 50 ECU and you manage to buy the package at a price
-        of 30 ECU. You will then earn 50 ECU - 30 ECU = 20 ECU  (plus the initial endowment of {{ Constants.endowment }} ECU).
-        If you fail to close a transaction, you will not incur in any cost nor profit, i.e. your profit will be 0 ECU
-      (plus the initial endowment of {{ Constants.endowment }} ECU).</p>
+    <p>Nehmen wir an, der Wert des Angebots, das Sie kaufen möchten, beträgt 50 ECU und es gelingt Ihnen, das Angebot zu einem Preis
+        von 30 ECU zu kaufen. Sie verdienen dann 50 ECU - 30 ECU = 20 ECU (plus der Startkapital  von {{ Constants.endowment }} ECU).
+        Wenn es Ihnen nicht gelingt, eine Transaktion abzuschließen, haben Sie weder Kosten noch Profit, d. h.
+        Ihr Profit beträgt 0 ECU (plus der Startkapital  von {{ Constants.endowment }} ECU).</p>
 
-    <p>It is important to note that two buyers can select the same offer but only one of them will complete the
-        transaction. The one who makes the decision to buy the package the fastest will be the one who completes the
-        transaction.</p>
+    <p>
+    Hierbei ist wichtig, dass zwei Käufer dasselbe Angebot wählen können, aber nur eine/r die Transaktion abschließen kann.
+        Wer sich als Erster entscheidet, das Angebot zu kaufen, schließt die Transaktion ab.
+    </p>
 
-    <p>Please click on the "Next" button to know your private valuations of each of the packages, to see the list of
-        offers, and to select at least one.</p>
+
+    <p>Bitte klicken Sie auf die Schaltfläche „Weiter“, um die vollständige Liste an
+        Angeboten und Preisen auf dem Markt zu sehen und den finalen Preis des Angebots zu definieren, das Sie verkaufen.</p>
     {% endif %}
-<button class="otree-btn-next btn btn-primary next-button otree-next-button">Next</button>
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">Weiter</button>
 
 {% endblock %}
