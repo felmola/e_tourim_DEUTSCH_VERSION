@@ -2,46 +2,45 @@
 {% load otree static %}
 
 {% block title %}
-    Informed Consent
+    EINWILLIGUNGSERKLÄRUNG
 {% endblock %}
 
 {% block content %}
 
-    <p>You have been invited to participate in this activity to understand how people make decisions. The study will be
-        carried out by Open Evidence S.A. You must be at least 18 years old to participate.</p>
+    <p>Sie wurden zu der Teilnahme an dieser Aktivität eingeladen, um zu verstehen, wie Menschen Entscheidungen treffen.
+        Die Studie wird von Open Evidence S.A. durchgeführt. Sie müssen mindestens 18 Jahre alt sein, um teilnehmen zu können.</p>
 
-    <p>If you agree to participate, you will take part on a series of decisions and will have to answer some questions.
-        Participation in this activity will require a maximum of one hour of your time. Participating in this activity
-        does not involve any risk.</p>
+    <p>Wenn Sie der Teilnahme zustimmen, werden Sie eine Reihe von Entscheidungen treffen und müssen einige Fragen beantworten.
+        Eine Teilnahme an dieser Aktivität nimmt maximal eine Stunde Ihrer Zeit in Anspruch.
+        Mit der Teilnahme an dieser Aktivität ist kein Risiko verbunden.</p>
 
-    <p>You will have the possibility of earning a certain amount of money. At the beginning you start with 25 EUR,
-        however your earnings may vary depending on your decisions. The payment will be in cash once this activity
-        is finished.</p>
+    <p>Sie werden die Möglichkeit haben, eine bestimmte Summe Geld zu verdienen. Zu Beginn starten Sie mit 25 Euro, Ihr Verdienst kann aber je nach Ihren Entscheidungen unterschiedlich ausfallen.
+        Ihr Verdienst wird Ihnen am Ende dieser Aktivität in bar ausbezahlt.</p>
 
-    <p>Participation is voluntary and you can leave at any time, but if you leave you will not receive any money.</p>
+    <p>Die Teilnahme ist freiwillig und Sie können jederzeit gehen. Sie erhalten aber kein Geld, wenn Sie zwischendrin abbrechen und gehen.</p>
 
-    <p>The methodology of this study guarantees complete anonymity, the information provided here is absolutely
-        confidential and will only be used for statistical purposes. Upon completion of the activity, personal data such
-        as name and document number will be removed from the database. All information provided will be treated in
-        accordance with the [RELEVANT EU LEGISLATION].</p>
+    <p>Die Methode dieser Studie garantiert vollständige Anonymität, die bereitgestellten Informationen werden absolut vertraulich
+        behandelt und nur zu statistischen Zwecken verwendet.
+        Nach Fertigstellung der Aktivität werden persönliche Daten wie der Name und die Ausweisnummer aus der Datenbank entfernt.
+        Alle bereitgestellten Informationen werden in Übereinstimmung mit (RELEVANTE EU-VORSCHRIFT) gehandhabt.</p>
 
-    <p>If there is anything about this study that needs to be clarified, if you want to report any inconvenience or if
-        you have doubts about your rights as a participant in this activity or about any other matter, do not hesitate
-        to contact [RELEVANT OPEN EVIDENCE CONTACT INFORMATION].</p>
+    <p>Wenn es etwas zur Studie gibt, das der Klärung bedarf, wenn Sie Unannehmlichkeiten melden möchten oder Zweifel
+        über Ihre Rechte als Teilnehmer/in dieser Aktivität oder aufgrund anderer Angelegenheiten haben,
+        kontaktieren Sie uns unter (RELEVANTE KONTAKTINFORMATIONEN VON OPEN EVIDENCE).</p>
 
-    <p>By signing below, you declare that you have been duly informed and that you participate in this activity on a
-        voluntary basis.
+    <p>Mit Ihrer Unterschrift bestätigen Sie, dass Sie ordnungsgemäß informiert wurden und das Sie freiwillig an dieser Aktivität teilnehmen.
+
     </p>
     <p>
     </p>
-    <p>[City, (Date)]
+    <p>[Ort, (Datum)]
     </p>
-    <p>Full name: {{ form.nombre }}
+    <p>Vollständiger Name: {{ form.nombre }}
     </p>
-    <p>ID number: {{ form.id_number }}
+    <p>Ausweisnummer: {{ form.id_number }}
     </p>
 
-<button class="otree-btn-next btn btn-primary next-button otree-next-button">I accept to participate</button>
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">Ich willige in die Teilnahme ein</button>
 
 {% endblock %}
 
