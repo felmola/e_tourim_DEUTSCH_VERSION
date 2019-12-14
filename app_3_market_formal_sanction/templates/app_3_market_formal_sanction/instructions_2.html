@@ -3,210 +3,197 @@
 
 {% block title %}
     {% if player.role == "seller" %}
-        Decision of the seller (Period {{ subsession.round_number }} of {{ Constants.num_rounds }})
+       Entscheidung des Verkäufers (Rund {{ subsession.round_number }} von {{ Constants.num_rounds }})
     {% else %}
-        Decision of the buyer (Period {{ subsession.round_number }} of {{ Constants.num_rounds }})
+        Entscheidung des Käufers (Rund {{ subsession.round_number }} von {{ Constants.num_rounds }})
     {% endif %}
 {% endblock %}
 
 {% block content %}
     {% if player.role == "seller" %}
-    <p>You were assigned to the role of seller. Remember that you will keep this role during the 5 trading rounds. You
-        will be able to sell only one package per trading round. The computer will randomly assign you one of the 5
-        available packages for you to sell in the market. Keep in mind that other sellers may sell the same package as
-        you. Additionally, you will be given a "value" of that package. This value represents the cost you would incur
-        if you were to close a transaction.</p>
+    <p>Ihnen wurde die Rolle des Verkäufers zugewiesen, die Sie während der 5 Verhandlungsrunden behalten werden.
+        Sie können pro Runde nur ein Pauschalangebot verkaufen.
+        Der Computer wird Ihnen zufällig eines der 5 verfügbaren Angebote für den Verkauf auf dem Markt zuteilen.
+        Denken Sie daran, dass andere Verkäufer möglicherweise dasselbe Angebote verkaufen wie Sie.
+        Zusätzlich wird Ihnen ein "Wert" für dieses Angebot zugeteilt.
+        Dieser Wert entspricht den Kosten, die Ihnen entstehen, wenn Sie eine Transaktion abschließen..</p>
 
-    <p>Keep in mind that the costs are private, that is, only you know this number. Neither the other sellers nor the
-        buyers know this information. In total there are 5 types of tourist packages whose only difference will be the
-        destination: Berlin, Madrid, Vienna, Paris and Rome. You will only receive one of these and its respective
-        cost.</p>
+    <p>Diese Kosten sind privat, das heißt, nur Sie kennen die Summe. Weder die Verkäufer noch die Käufer kennen den Wert.
+        Insgesamt gibt es 5 touristische Pauschalangebote, die sich nur durch die Destination unterscheiden:
+        Berlin, Madrid, Wien, Paris und Rom. Sie erhalten nur eines von diesen sowie die entstehenden Kosten..</p>
 
-    <p>You will have to fix a price for the package that was assigned to you. This price must be higher than the cost
-        of the package. Your earnings will be calculated as the difference between the price you set and the cost of the
-        package. If you fail to complete a transaction, you will not incur any costs, but you will not make any profit
-        either. Think of it this way, let's suppose you have a chance to get the package in question, and if you manage.
-        to sell it, you'll earn the difference. The cost is what you would have to pay to get the package. If the cost
-        is 50 ECU and you manage to sell the package for 70 ECU, then your profit would be 20 ECU (plus the initial
-        endowment of {{ Constants.endowment }} ECU). If you do not sell the package, your profit would be zero (plus the initial
-        endowment of {{ Constants.endowment }} ECU), i.e. you would not incur in any costs and would not receive any income.</p>
+    <p>Sie müssen für das Angebot, das Ihnen zugeteilt wurde, einen Preis festlegen.
+        Der Preis muss über den Kosten für das Angebot liegen. Ihr Verdienst wird aufgrund der Differenz zwischen dem von Ihnen festgelegtem Preis und den Kosten des Angebots errechnet.
+        Wenn Sie keine Transaktion abschließen entstehen Ihnen keine Kosten, Sie generieren aber auch keinen Profit.
+        Ein Beispiel: Nehmen wir an, Sie haben eine Chance, das besagte Angebot zu erhalten und Sie verdienen die Differenz, wenn es Ihnen gelingt, es zu verkaufen.
+        Wenn die Kosten 50 ECU beträgt und es Ihnen gelingt, das Angebot für 70 ECU zu verkaufen, beträgt Ihr Profit 20 ECU plus (plus der Startkapital von {{ Constants.endowment }} ECU) .
+        Wenn Sie das Angebot nicht verkaufen, beträgt Ihr Profit 0 ECU (plus der Startkapital  von {{ Constants.endowment }} ECU)) , d. h. Sie haben keine Kosten und erhalten kein Einkommen.
+    </p>
 
-    <p>Let's see another example:</p>
+    <p>Lassen Sie uns ein anderes Beispiel ansehen:</p>
 
-    <p>Suppose the cost of your package is 30 ECU and you manage to sell the package at a price of 50 ECU. You will then
-        earn 50 ECU - 30 ECU = 20 ECU (plus the initial endowment of {{ Constants.endowment }} ECU). If you fail to
-        close a transaction, you will not incur in any no cost nor profit, i.e. your profit will be 0 ECU (plus the initial
-        endowment of {{ Constants.endowment }} ECU)</p>
+    <p>Nehmen wir an, die Kosten Ihres Angebots belaufen sich auf 30 ECU und es gelingt Ihnen, das Angebot für einen Preis von 50 ECU zu verkaufen.
+        Sie verdienen dann 50 ECU - 30 ECU = 20 ECU (plus der Startkapital  von {{ Constants.endowment }} ECU)).
+        Wenn es Ihnen nicht gelingt, eine Transaktion abzuschließen, generieren Sie weder Kosten noch Profit, d. h. Ihr Profit betrögt 0 ECU.
+        (plus der Startkapital  von {{ Constants.endowment }} ECU)).
+    </p>
 
-    <p>It is important to note that two buyers can select the same offer, but only one of them will complete the
-        transaction. The one who makes the decision to buy the package the fastest will be the one who completes the
-        transaction with you.</p>
+    <p>Hierbei ist wichtig, dass zwei Käufer dasselbe Angebot wählen können, aber nur eine/r die Transaktion abschließen kann.
+        Wer sich als Erster entscheidet, das Angebot zu kaufen, schließt die Transaktion mit Ihnen ab.</p>
 
-    <p>Additionally, you can choose a commercial practice to help make your package more attractive in the market. There
-        are three commercial practices and if you use them, they will be visible to the buyer at the time of completing
-        the transaction. However, keep in mind that any of these commercial practices can be used truthfully or
-        untruthfully.</p>
+    <p>Zusätzlich können Sie eine Handelspraxis wählen, um Ihr Angebot für den Markt attraktiver zu machen:
+        Es gibt drei Handelspraktiken, und wenn Sie diese auswählen, werden Sie dem Käufer zum Zeitpunkt des Abschließens der Transaktion angezeigt.
+        Berücksichtigen Sie aber, dass diese Handelspraktiken jeweils wahrheitsgemäß oder wahrheitswidrig verwendet werden können.</p>
 
-    <p>In the end, we will audit two of the sellers randomly, i.e. the probability of being audited is 20%. If an
-        audited seller is using some commercial practice untruthfully, the seller must pay 20 ECUs as a fine. These 20
-        ECU will be distributed among the buyers.</p>
-
-    <p>Please click on the "Next" button to see the package you are going to sell and its cost </p>
+    <p>Wir werden zwei der Verkäufer nach dem Zufallsprinzip überprüfen, die Wahrscheinlichkeit einer Überprüfung liegt somit bei 20 %.
+        Wenn ein überprüfter Verkäufer eine Handelspraxis nicht wahrheitsgemäß anwendet, muss der Verkäufer 20 ECU als Strafe zahlen.
+        Diese 20 ECU werden unter den Käufern aufgeteilt. </p>
+    <p>Bitte klicken Sie auf die Schaltfläche „Weiter“, um das Angebot, das Sie verkaufen werden, und dessen Kosten zu sehen</p>
 
 
     {% else %}
-    <p>You were assigned to the role of buyer. Remember that you will keep this role during the 5 trading rounds.
-        You will be able to buy only one package per trading round. The computer will give you a "value" for each of the
-        packages you will find for sale in the market. This value represents how much you value that package if you were
-        to close a transaction. In total there are 5 types of tourist packages whose only difference will be the
-        destination: Berlin, Madrid, Vienna, Paris and Rome. You will only receive five values, one for each package.</p>
+    <p>Ihnen wurde die Rolle des Käufers zugewiesen, die Sie während der 5 Verhandlungsrunden behalten werden.
+        Sie können pro Runde nur ein Pauschalangebot kaufen.
+        Der Computer wird Ihnen einen "Wert" für jedes Angebot zuteilen, das auf dem Markt zum Verkauf steht.
+        Dieser Wert steht für den Wert, den Sie dem Angebot zuteilen, wenn Sie kurz vor dem Abschluss einer Transaktion stehen.
+        Insgesamt gibt es 5 touristische Pauschalangebote, die sich nur durch die Destination unterscheiden:
+        Berlin, Madrid, Wien, Paris und Rom. Sie erhalten nur fünf Werte, einen für jedes Angebot.</p>
 
-    <p>Please note that the values are private, i.e. only you know this numbers. Neither the other buyers nor the
-        sellers know this information.</p>
+    <p>Diese Werte sind privat, das heißt, nur Sie kennen die Summe. Weder die Käufer noch die Verkäufer kennen den Wert.</p>
 
-    <p>You will be shown a list of all package offers in the market and their respective prices. To close a transaction,
-        you must select one and only one of the packages in the market. Your earnings will be calculated as the
-        difference between your valuation and the price at which you purchased the package. If you fail to complete a
-        transaction, you won’t make any profit (plus the initial endowment of {{ Constants.endowment }} ECU). </p>
+    <p>Ihnen wird eine Liste aller Angebote auf dem Markt und die jeweiligen Preise angezeigt.
+        Um eine Transaktion abzuschließen müssen Sie ein, und wirklich nur ein, Angebot auf dem Markt auswählen.
+        Ihr Verdienst wird aufgrund der Differenz zwischen Ihrem ausgewählten Wert und dem Preis, zu dem Sie dieses Angebot gekauft haben, errechnet.
+        Wenn Sie keine Transaktion abschließen, machen Sie keinen Profit (plus der Startkapital  von {{ Constants.endowment }} ECU).</p>
 
-    <p>Think of it this way, suppose you have the ability to resell each of the five packages in question, and if you
-        manage to get one, you will earn the difference. The value is what you would receive when you resell the
-        package. If the value is 70 ECU and you manage to get the package at a price of 50 ECU, then your profit would be
-        20 ECU (plus the initial endowment of {{ Constants.endowment }} ECU). If you do not succeed in buying the
-        package, your profit would be zero, i.e. you would not pay any price and would not receive any income (except
-    for the initial endowment of {{ Constants.endowment }} ECU).</p>
+    <p>Ein Beispiel: Nehmen wir an, Sie haben die Möglichkeit, jedes der besagten Angebote weiterzuverkaufen, und wenn
+        Sie eines bekommen, verdienen Sie die Differenz. Der Wert ist die Summe, die Sie erhalten würden, wenn Sie das
+        Angebot weiterverkaufen. Wenn der Wert 70 ECU beträgt und es Ihnen gelingt, das Angebot für 50 ECU zu kaufen, beträgt Ihr Profit 20 ECU
+        (plus der Startkapital von {{ Constants.endowment }} ECU).
+        Wenn es Ihnen nicht gelingt, das Angebot zu kaufen, beträgt Ihr Profit 0 ECU ,
+        d. h. Sie bezahlen nichts und erhalten kein Einkommen (außer dem Startkapital von {{ Constants.endowment }} ECU).</p>
 
-    <p>Let's see another example:</p>
+    <p>Lassen Sie uns ein anderes Beispiel ansehen:</p>
 
-    <p>Suppose that the value for the package you decide to buy is 50 ECU and you manage to buy the package at a price
-        of 30 ECU. You will then earn 50 ECU - 30 ECU = 20 ECU  (plus the initial endowment of {{ Constants.endowment }} ECU).
-        If you fail to close a transaction, you will not incur in any cost nor profit, i.e. your profit will be 0 ECU
-      (plus the initial endowment of {{ Constants.endowment }} ECU).</p>
+    <p>Nehmen wir an, der Wert des Angebots, das Sie kaufen möchten, beträgt 50 ECU und es gelingt Ihnen, das Angebot zu einem Preis
+        von 30 ECU zu kaufen. Sie verdienen dann 50 ECU - 30 ECU = 20 ECU (plus der Startkapital  von {{ Constants.endowment }} ECU).
+        Wenn es Ihnen nicht gelingt, eine Transaktion abzuschließen, haben Sie weder Kosten noch Profit, d. h.
+        Ihr Profit beträgt 0 ECU (plus der Startkapital  von {{ Constants.endowment }} ECU).</p>
 
-    <p>It is important to note that two buyers can select the same offer but only one of them will complete the
-        transaction. The one who makes the decision to buy the package the fastest will be the one who completes the
-        transaction.</p>
+    <p>
+    Hierbei ist wichtig, dass zwei Käufer dasselbe Angebot wählen können, aber nur eine/r die Transaktion abschließen kann.
+        Wer sich als Erster entscheidet, das Angebot zu kaufen, schließt die Transaktion ab.
+    </p>
 
-    <p>Additionally, notice that the sellers can choose a commercial practice to help make their packages more
-        attractive in the market. There are three commercial practices and if a seller uses them, they will be visible
-        to the buyer at the time of completing the transaction. However, keep in mind that any of these commercial
-        practices can be used truthfully or untruthfully.</p>
+    <p>Beachten Sie zudem, dass Sie Verkäufer eine Handelspraxis wählen können, um ihre Angebot für den Markt attraktiver zu machen.
+        Es gibt drei Handelspraktiken, und wenn ein Verkäufer diese nutzt, werden sie dem Käufer zum Zeitpunkt des Abschließens der Transaktion angezeigt.
+        Berücksichtigen Sie aber, dass diese Handelspraktiken jeweils wahrheitsgemäß oder wahrheitswidrig verwendet werden können.</p>
 
-    <p>In the end, we will audit two of the sellers randomly, i.e. the probability of being audited is 20%. If an
-        audited seller is using some commercial practice untruthfully, the seller must pay 20 ECU as a fine. These 20 ECU
-        will be distributed among the buyers.</p>
+    <p>Wir werden zwei der Verkäufer nach dem Zufallsprinzip überprüfen, die Wahrscheinlichkeit einer Überprüfung liegt somit bei 20 %.
+        Wenn ein überprüfter Verkäufer eine Handelspraxis nicht wahrheitsgemäß verwendet, muss der Verkäufer 20 ECU als Strafe zahlen.
+        Diese 20 ECU werden unter den Käufern aufgeteilt.</p>
 
-    <p>There are three commercial practices available that buyers will be able to use to make their package more
-        attractive to the market.</p>
+    <p>Es gibt drei Handelspraktiken, welche die Verkäufer nutzen können, um ihr Angebot attraktiver für den Markt zu machen.</p>
 
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Commercial Practice</th>
+                <th scope="col">Handelspraxis</th>
                 <th scope="col">Definition</th>
-                <th scope="col">Example</th>
+                <th scope="col">Beispiel</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th scope="row">Best Price Guarantee</th>
-                <td>This commercial practice allows the seller to make the announcement that, among all packages with
-                    the same
-                    destination, this one has the lowest price.</td>
-                <td>Suppose the seller offers the package to Rome. There may be other sellers in the market selling the
-                    same
-                    package to Rome, but if the seller opts for this commercial practice, the seller would be saying that, of all the
-                    packages to Rome, hers/his is the cheapest.</td>
+                <th scope="row">Bester-Preis-Garantie</th>
+                <td>Diese Handelspraxis erlaubt es dem Verkäufer zu verkünden,
+                    dass dieses Angebot, unter allen Angeboten mit derselben Destination, den niedrigsten Preis hat.</td>
+                <td>Nehmen wir an, der Verkäufer bietet das Pauschalangebot nach Rom an.
+                    Es mag andere Verkäufer am Markt geben, die dasselbe Angebot nach Rom verkaufen, wenn der Verkäufer sich aber
+                    für diese Handelspraxis entscheidet, sagt er, dass sein Angebot von allen Pauschalangeboten nach Rom das billigste ist.</td>
             </tr>
             <tr>
-                <th scope="row">Reference Pricing</th>
-                <td>This commercial practice allows the seller to make the announcement that between the first price the seller
-                    proposed and the end, the seller offered a discount.</td>
-                <td>Suppose the seller offers a package to Rome. The seller can claim that she/he made a discount between the first price
-                    she/he bid of 60 ECU and the final (the one the seller confirmed after deciding whether or not to observe the
-                    competition)</td>
+                <th scope="row">Referenzpreis</th>
+                <td>Diese Handelspraxis erlaubt es dem Verkäufer zu verkünden,
+                    dass er, im Vergleich zum ersten Preis, den er angegeben hat und dem Endpreis, einen Rabatt anbietet.</td>
+                <td>Nehmen wir an, der Verkäufer bietet das Pauschalangebot nach Rom an.
+                    Er kann behaupten, dass er 60 ECU Rabatt auf den anfänglich festgesetzten Preis gewährt
+                    (der Endpreis ist der, den er bestätigt hat, nachdem er entschieden haben, ob er die Preise der Mitbewerber angezeigt bekommt oder nicht).</td>
             </tr>
             <tr>
                 <th scope="row">Drip pricing</th>
-                <td>This commercial practice allows the seller to display a price for the package she/he is bidding that is less
-                    than the total price she/he is asking for it. The difference between the actual price and the price
-                    the seller is displaying is equal to the cost for viewing the full list of packages (2 ECU), regardless
-                    of whether the seller decided to pay this cost or not.</td>
-                <td>Suppose the seller offers a package to Rome and the price the seller claims for this package is 80 ECU. If the seller
-                    decides to use this commercial practice, the seller's offer will appear with a price of 78 ECU*, with a note
-                    indicating the total price.</td>
+                <td>Diese Handelspraxis erlaubt es dem Verkäufer, einen Preis für das Angebot anzuzeigen, der unter dem Gesamtpreis liegt, den er verlangt. Die Differenz zwischen dem aktuellen Preis und dem angezeigten Preis ist so hoch wie die Kosten, die ganze Liste der Angebote angezeigt zu bekommen (1 ECU),
+                    unabhängig davon, ob sich der Verkäufer entschieden hat, diese Kosten zu zahlen oder nicht.</td>
+                <td>Nehmen wir an, der Verkäufer bietet das Pauschalangebot nach Rom an und der Preis, den er festgelegt hat, beträgt 80 ECU.
+                    Wenn er sich entscheidet, diese Handelspraxis zu nutzen, wird sein Angebot mit einem Preis von 79 ECU* angezeigt, mit einer Notiz, in der der Gesamtpreis angezeigt wird.</td>
         </tbody>
     </table>
 
-    <p>Notice that these commercial practices can be used truthfully (case 1) or untruthfully (case 2). Using the
-        examples in the table above, in the following table you will find each of the commercial practices and the
-        examples for case 1 and case 2.</p>
+    <p>Beachten Sie, dass diese Handelspraktiken wahrheitsgemäß (Fall 1) oder wahrheitswidrig (Fall 2) sein können.
+        Aufbauend auf den Beispielen in der obigen Tabelle finden Sie hier die jeweilige Handelspraxis und die Beispiele für Fall 1 und Fall 2..</p>
 
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Commercial Practice</th>
-                <th scope="col">Case 1 (truthful)</th>
-                <th scope="col">Case 2 (untruthful)</th>
+                <th scope="col">Handelspraxis</th>
+                <th scope="col">Fall 1 (wahrheitsgemäß)</th>
+                <th scope="col">Fall 2 (wahrheitswidrig)</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th scope="row">Best Price Guarantee</th>
-                <td>1) When there is no other package to Rome. 2) When there exists at least another package to Rome
-                    and the latter has a larger price.</td>
-                <td>1) When there exists at least another package to Rome and the latter has a smaller price.</td>
+                <th scope="row">Bester-Preis-Garantie</th>
+                <td>1) Wenn es kein anderes Angebot nach Rom gibt. 2) Wenn es mindestens ein anderes Angebot
+                        nach Rom gibt und das letztere teurer ist.</td>
+                <td>1) Wenn es mindestens ein anderes Angebot nach Rom gibt und das letztere billiger ist.</td>
             </tr>
             <tr>
-                <th scope="row">Reference Pricing</th>
-                <td>1) Use of the real discount.</td>
-                <td>1) Use of the real discount plus 20 ECU</td>
+                <th scope="row">Referenzpreis</th>
+                <td>1) Verwenden des echten Rabatts.</td>
+                <td>1) Verwenden des echten Rabatts zuzüglich 20 ECU.</td>
             </tr>
             <tr>
                 <th scope="row">Drip pricing</th>
-                <td>1) When the seller shows the price minus the cost to see the first offer of the other sellers.</td>
-                <td>1) When the seller decides not to see the prices of the competitors but still show the price net of this cost</td>
+                <td>1) Wenn der Verkäufer den Preis minus der Kosten zeigt, um das erste Angebot der anderen Verkäufer zu sehen.</td>
+                <td>1) Wenn der Verkäufer entscheidet, die Preise der Mitbewerber nicht zu sehen, aber immer noch den Nettopreis dieser Kosten anzeigt.</td>
             </tr>
         </tbody>
     </table>
 
-    <p>Remember that it is the seller’s decision whether or not to use any of these commercial practices.</p>
-
-    <p>In the table below you can see what a bid would look like in the list of bids with each of the business practices
-        whether the seller decided to use one of them.</p>
+    <p>In der Tabelle unten können Sie sehen, wie Ihr Angebot in der Liste der Angebote mit jeder der Handelspraktiken aussehen würde, wenn Sie eines davon verwenden würden.</p>
 
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Commercial Practice</th>
-                <th scope="col">Chosen</th>
-                <th scope="col">Unchosen</th>
+                <th scope="col">Handelspraxis</th>
+                <th scope="col">Gewählt</th>
+                <th scope="col">Nicht gewählt</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th scope="row">Best Price Guarantee</th>
+                <th scope="row">Bester-Preis-Garantie</th>
                 <td>
                     <div class="card border-dark mb-3" style="max-width: 18rem;">
-                        <h3 class="card-header">Rome</h3>
+                        <h3 class="card-header">Rom</h3>
                         <div class="card-body text-dark">
                             <h5 class="card-title">80 ECU</h5>
                             <br>
                             <br>
                             <hr class="my-4">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Buy</a>
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Kaufen</a>
                         </div>
                     </div>
                 </td>
                 <td>
                     <div class="card border-dark mb-3" style="max-width: 18rem;">
-                        <h3 class="card-header">Rome</h3>
+                        <h3 class="card-header">Rom</h3>
                         <div class="card-body text-dark">
                             <h5 class="card-title">80 ECU</h5>
                             <br>
                             <p class="card-text">Best price guaranteed</p>
                             <hr class="my-4">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Buy</a>
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Kaufen</a>
                         </div>
                     </div>
                 </td>
@@ -221,19 +208,19 @@
                             <br>
                             <br>
                             <hr class="my-4">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Buy</a>
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Kaufen</a>
                         </div>
                     </div>
                 </td>
                 <td>
                     <div class="card border-dark mb-3" style="max-width: 18rem;">
-                        <h3 class="card-header">Rome</h3>
+                        <h3 class="card-header">Rom</h3>
                         <div class="card-body text-dark">
                             <h5 class="card-title"><del> 100 ECU </del></h5>
                             <h5 class="card-title">80 ECU</h5>
                             <br>
                             <hr class="my-4">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Buy</a>
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Kaufen</a>
                         </div>
                     </div>
                 </td>
@@ -242,34 +229,34 @@
                 <th scope="row">Drip pricing</th>
                 <td>
                     <div class="card border-dark mb-3" style="max-width: 18rem;">
-                        <h3 class="card-header">Rome</h3>
+                        <h3 class="card-header">Rom</h3>
                         <div class="card-body text-dark">
                             <h5 class="card-title">80 ECU</h5>
                             <br>
                             <br>
                             <hr class="my-4">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Buy</a>
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Kaufen</a>
                         </div>
                     </div>
                 </td>
                 <td>
                     <div class="card border-dark mb-3" style="max-width: 18rem;">
-                        <h3 class="card-header">Rome</h3>
+                        <h3 class="card-header">Rom</h3>
                         <div class="card-body text-dark">
-                            <h5 class="card-title"> 78 ECU*</h5>
+                            <h5 class="card-title"> 79 ECU<a href = # data-toggle="tooltip" title = "Gesamtpreis = 79 + 1 ECU = 80 ECU " data-original-title="Default tooltip">*</a></h5>
                             <br>
                             <br>
                             <hr class="my-4">
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Buy</a>
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Kaufen</a>
                         </div>
                     </div>
                 </td>
         </tbody>
     </table>
 
-    <p>Please click on the "Next" button to know your private valuations of each of the packages, to see the list of
-        offers, and to select at least one.</p>
+    <p>Bitte klicken Sie auf die Schaltfläche „Weiter“, um die vollständige Liste an
+        Angeboten und Preisen auf dem Markt zu sehen und den finalen Preis des Angebots zu definieren, das Sie verkaufen.</p>
     {% endif %}
-<button class="otree-btn-next btn btn-primary next-button otree-next-button">Next</button>
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">Weiter</button>
 
 {% endblock %}
