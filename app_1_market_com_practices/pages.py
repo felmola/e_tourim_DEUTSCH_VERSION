@@ -17,7 +17,7 @@ class MyWaitPage(WaitPage):
     def is_displayed(self):
         return self.player.role() == 'buyer'
 
-    title_text = "You are a Buyer"
+    title_text = "Sie sind ein Kaufer"
     body_text = "Please wait while the sellers set their offers"
 
 
@@ -41,7 +41,7 @@ class SellerWaitPage(WaitPage):
     def is_displayed(self):
         return self.player.role() == 'seller'
 
-    title_text = "Please Wait"
+    title_text = "Bitte warte"
     body_text = "Please wait while the other sellers set their prices"
 
 #TODO: Fix sellers IDs so they show from 1 to 10 instead of 1 to 19
