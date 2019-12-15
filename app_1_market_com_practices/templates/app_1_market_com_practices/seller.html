@@ -6,6 +6,46 @@
 {% endblock %}
 
 {% block content %}
+<script>
+$(document).ready(function() {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>
+{% comment %} info de tooltip: https://www.w3schools.com/css/css_tooltip.asp {% endcomment %}
+<style>
+    .tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+</style>
+
     <table class="table table-bordered">
 
         <tbody>
@@ -111,7 +151,6 @@
         </tbody>
     </table>
 
-    <p>Remember that it is your decision whether or not to use any of these commercial practices.</p>
 
     <p>In der Tabelle unten können Sie sehen, wie Ihr Angebot in der Liste der
         Angebote mit jeder der Handelspraktiken aussehen würde, wenn Sie eine davon verwenden würden.</p>
@@ -145,7 +184,7 @@
                         <div class="card-body text-dark">
                             <h5 class="card-title">80 ECU</h5>
                             <br>
-                            <p class="card-text">Best price guaranteed</p>
+                            <p class="card-text">Bester-Preis-Garantie</p>
                             <hr class="my-4">
                             <a class="btn btn-primary btn-lg" href="#" role="button">Kaufen</a>
                         </div>
