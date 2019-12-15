@@ -53,7 +53,6 @@
             Sie haben Ihr touristisches Pauschalangebot verkauft. Aus diesem Grund beträgt Ihr Profit in dieser Runde: {{player.payoff |c}}
             {% endif %}
             {% if player.audited == True %}
-                <p>You were audited</p>
                 {% if player.bad_practice == True %}
                     <p> Zudem wurde durch eine Überprüfung entdeckt, dass Sie eine Handelspraxis wahrheitswidrig angewendet haben.
                         Aus diesem Grund müssen Sie {{Constants.punisment }} ECU Strafe zahlen. Daher beträgt Ihr Profit in dieser Runde {{player.payoff|c}}</p>
