@@ -202,8 +202,8 @@ class Player(BasePlayer):
     seller_id = models.IntegerField()
     sold = models.BooleanField(initial = False)
     over_average = models.BooleanField(choices =[
-        [0, "below or equal to"],
-        [1, "above"]
+        [0, "unter oder egal"],
+        [1, "über"]
     ])
     my_buyer = models.IntegerField(initial = 0)
     ref20 = models.IntegerField(initial=0)
