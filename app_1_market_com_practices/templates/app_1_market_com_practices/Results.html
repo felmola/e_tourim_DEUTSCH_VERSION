@@ -43,15 +43,14 @@
                 <td> Pris</td>
                 <td>{{ price|c}} </td>
             </tr>
-
     {% else %}
-            <p>You took you too long to make a decision. For this reason, your profit for this trading round is 0.<br> </p>
+            <p>Sie waren zu langsam. Aus diesem Grund beträgt Ihr Profit für diese Runde: 0 ECU.<br> </p>
     {% endif %}
 {% else %}
             {% if player.sold == False %}
             Sie haben kein touristisches Pauschalangebot verkauft. Aus diesem Grund beträgt Ihr Profit für diese Runde: {{player.payoff |c}}.
             {% else %}
-            You managed to sell your tourist package. For this reason, your profit for this trading round is: {{player.payoff |c}}
+            Sie haben Ihr touristisches Pauschalangebot verkauft. Aus diesem Grund beträgt Ihr Profit in dieser Runde: {{player.payoff |c}}
             {% endif %}
 
 {% endif %}
