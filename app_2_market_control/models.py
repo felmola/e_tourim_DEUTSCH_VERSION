@@ -30,7 +30,7 @@ class Constants(BaseConstants):
 
     packages = [i for i in range(1, 6)]
 
-    cities =["Rome", "Vienna", "Paris", "Madrid", "Berlin"]
+    cities =["Rom", "Wien", "Paris", "Madrid", "Berlin"]
 
     seller_valuations = [70, 60, 50, 50, 40, 40, 30, 20, 10, 10]
     buyer_valuations = [100, 100, 90, 80, 80, 70, 60, 60, 50, 40]
@@ -153,8 +153,8 @@ class Player(BasePlayer):
     seller_package = models.IntegerField(choices =
     [
         [0, "None"],
-        [1, "Rome"],
-        [2, "Vienna"],
+        [1, "Rom"],
+        [2, "Wien"],
         [3, "Paris"],
         [4, "Madrid"],
         [5, "Berlin"]
@@ -187,8 +187,8 @@ class Player(BasePlayer):
     buyer_packages = models.IntegerField(choices =
     [
         [0, "None"],
-        [1, "Rome"],
-        [2, "Vienna"],
+        [1, "Rom"],
+        [2, "Wien"],
         [3, "Paris"],
         [4, "Madrid"],
         [5, "Berlin"]
@@ -198,8 +198,8 @@ class Player(BasePlayer):
     package_purchased = models.IntegerField( choices =
         [
             [0, "None"],
-            [1, "Rome"],
-            [2, "Vienna"],
+            [1, "Rom"],
+            [2, "Wien"],
             [3, "Paris"],
             [4, "Madrid"],
             [5, "Berlin"]
