@@ -17,7 +17,6 @@ class MyWaitPage(WaitPage):
     def is_displayed(self):
         return self.player.role() == 'buyer'
 
-    #TODO Traducir la condición de regret
 
 
 class seller(Page):
