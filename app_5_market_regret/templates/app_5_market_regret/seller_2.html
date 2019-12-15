@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Decision of the seller (Period {{ subsession.round_number }} of {{ Constants.num_rounds }})
+    Entscheidung des Verkäufers (Runde {{ subsession.round_number }} von {{ Constants.num_rounds }})
 {% endblock %}
 
 {% block content %}
@@ -11,9 +11,9 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Seller ID</th>
-                <th scope="col">Package</th>
-                <th scope="col">Price</th>
+                <th scope="col">Verkäufer-ID</th>
+                <th scope="col">Angebot</th>
+                <th scope="col">Preis</th>
             </tr>
         </thead>
         <tbody>
@@ -35,22 +35,22 @@
     <table class = "table table-bordered">
         <tbody>
             <tr>
-                <td>Your valuation was: </td>
+                <td>Ihre Kosten: </td>
                 <td>{{player.seller_valuation}} ECU </td>
             </tr>
             <tr>
-                <td> Your initial price was:</td>
+                <td> Ihr Anfangspreis:</td>
                 <td>{{player.ask_price_ini}} ECU </td>
             </tr>
             <tr>
-                <td>If you wish to change the initial price to your package, please write the final price in the box below: <br>
-                Remember that for you to make a profit you must sell the package at a higher price than its cost.</td>
+                <td>Wenn Sie den Startpreis Ihres Angebots ändern möchten, tragen Sie bitte den finalen Preis in das folgende Kästchen ein: <br>
+                    Denken Sie daran, dass Sie das Angebot zu einem Preis verkaufen müssen, der die Kosten übersteigt, um Profit zu machen.</td>
                 <td><div class = "form-inline"> {{ form.ask_price_fin }} &nbsp; ECU  </div></td>
             </tr>
         </tbody>
     </table>
-    <p>Once you have set up the final price, please click on the "Next" Button.</p>
 
+    <p>Drücken Sie auf die Schaltfläche „Weiter“, sobald Sie den finalen Preis eingegeben haben.</p>
 
     {% next_button %}
 {% endblock %}
