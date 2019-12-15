@@ -10,30 +10,30 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col" colspan="2">Results from the activity</th>
+                <th scope="col" colspan="2">Ergebnisse</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>The trading round sorted for payment was:</td>
+                <td>Der Computer hat zufällig eine für die Zahlung ausgewählt und Ihre Profit war:</td>
                 <td>{{ paying_round }}</td>
             </tr>
             <tr>
-                <td>Your payoff (including the initial endowment of {{ endowment }} ECU) is:</td>
+                <td>Ihre Payff (including the initial endowment of {{ endowment }} ECU) is:</td>
                 <td>{{ payoff_final }}</td>
             </tr>
         </tbody>
     </table>
 
     <p>
-    Please click on the "Next" button to continue with the questionnaire.
+    Klicken Sie bitte auf die Schaltfläche „Weiter“, um mit dem zweiten Teil dieser Aktivität fortzufahre
     </p>
 
     {% next_button %}
 {% endblock %}
 
 
-{% block styles  %}
+
 {% endblock %}
 

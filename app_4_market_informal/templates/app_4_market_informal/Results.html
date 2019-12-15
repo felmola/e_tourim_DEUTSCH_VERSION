@@ -2,30 +2,30 @@
 {% load otree static %}
 
 {% block title %}
-    Results of Trading Period ({{ subsession.round_number }} of {{ Constants.num_rounds }})
+    Ergebnisse der Handelsrunde (Runde {{ subsession.round_number }} von {{ Constants.num_rounds }})
 {% endblock %}
 
 {% block content %}
 
-<p>Your results from this trading round are: </p>
+<p>Ihre Ergebnisse für diese Handelsrunde sind: </p>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Results</th>
+                <th scope="col">Ergebnisse</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Role</td>
+                <td>Rol</td>
                 <td>{{ role }}</td>
             </tr>
             <tr>
-                <td>Your ID is</td>
+                <td>Ihre ID: </td>
                 <td>{{ player.id_in_group }}</td>
             </tr>
             <tr>
-                <td>Your payoff (plus the initial endowment of {{ Constants.endowment }} ECU)</td>
+                <td>Ihr Profit für diese Runde (plus der Startkapital von {{ Constants.endowment }} ECU)</td>
                 <td>{{ payoff }}</td>
             </tr>
         </tbody>
@@ -35,29 +35,30 @@
 <table class="table table-bordered">
     <tbody>
             <tr>
-                <td>Package purchased</td>
+                <td>Angebot gekauft</td>
                 <td>{{ player.get_package_purchased_display }}</td>
             </tr>
             <tr>
-                <td> Seller </td>
+                <td> Verkäufer </td>
                 <td>{{ seller }}</td>
             </tr>
             <tr>
-                <td> Price</td>
+                <td> Pris</td>
                 <td>{{ price|c}} </td>
             </tr>
     </tbody>
 </table>
     {% else %}
-            <p>You took you too long to make a decision. For this reason, your profit for this trading round is 0.<br> </p>
+            <p>Sie waren zu langsam. Aus diesem Grund beträgt Ihr Profit für diese Runde: 0 ECU.<br> </p>
     {% endif %}
 {% else %}
             {% if player.sold == False %}
-            You didn't manage to sell your tourist package. For this reason, your profit for this trading round is {{player.payoff |c}}.
+            Sie haben kein touristisches Pauschalangebot verkauft. Aus diesem Grund beträgt Ihr Profit für diese Runde 0 ECU..
             {% else %}
-            You managed to sell your tourist package. For this reason, your profit for this trading round is: {{player.payoff |c}}
+            Sie haben Ihr touristisches Pauschalangebot verkauft.
+            Zudem haben {{player.times_reported}} Käufer sie gemeldet. Aus diesem Grund müssen Sie {{ player.penalty }} ECU Strafe zahlen.
+            Daher beträgt Ihr Profit in dieser Runde: {{player.payoff |c}}.
             {% endif %}
-            You were reported {{ player.times_reported }} times.
 
 {% endif %}
 
