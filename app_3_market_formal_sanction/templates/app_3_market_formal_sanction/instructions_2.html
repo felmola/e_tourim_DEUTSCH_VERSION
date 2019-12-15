@@ -9,6 +9,7 @@
     {% endif %}
 {% endblock %}
 
+{% block content %}
 <script>
 $(document).ready(function() {
   $('[data-toggle="tooltip"]').tooltip()
@@ -49,9 +50,7 @@ $(document).ready(function() {
 }
 </style>
 
-
-{% block content %}
-    {% if player.role == "seller" %}
+ {% if player.role == "seller" %}
     <p>Ihnen wurde die Rolle des Verkäufers zugewiesen, die Sie während der 5 Verhandlungsrunden behalten werden.
         Sie können pro Runde nur ein Pauschalangebot verkaufen.
         Der Computer wird Ihnen zufällig eines der 5 verfügbaren Angebote für den Verkauf auf dem Markt zuteilen.
