@@ -64,7 +64,7 @@ $(document).ready(function() {
 </style>
 
 
-    <p>Bitte wählen Sie einen Verkäufer aus, von dem Sie glauben, dass er eine Handelspraxis wahrheitswidrig angewendet hat.</p>
+    <p>Bitte wählen Sie einen Verkäufer aus, von dem Sie glauben, dass er eine Handelspraxis wahrheitswidrig angewendet hat:</p>
 
 <table class="table table-bordered">
         <thead>
@@ -113,11 +113,12 @@ $(document).ready(function() {
 </table>
 
     {% next_button %}
-        {% endif %}
-    {% else %}
-    <p> Keine Verkäufer hat Handelspraktiken benutzt</p>
+        {% else %}
+
+    <p> Keine Verkäufer hat Handelspraktiken benutzt.</p>
             <button id = "id_next" class="otree-btn-next btn btn-primary next-button otree-next-button">Weiter</button>
             <input id = "id_hidden" type ="hidden" name ="report_seller" value = 0 />
+        {% endif %}
     {% endif %}
 {% endfor %}
 
