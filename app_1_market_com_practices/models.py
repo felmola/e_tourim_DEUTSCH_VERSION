@@ -26,7 +26,7 @@ class Constants(BaseConstants):
     name_in_url = 'app_1_market_com_practices'
     players_per_group = 20
     num_rounds = 5
-    endowment = 25
+    endowment = 30
     see_list_cost = 1
     reference_20 = 20
 
