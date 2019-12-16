@@ -264,6 +264,7 @@ class Player(BasePlayer):
 
     paying_round = models.IntegerField()
     payoff_final = models.IntegerField()
+    payoff_euro = models.FloatField()
     discount = models.IntegerField()
 
     def payoff_final_f(self):

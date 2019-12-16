@@ -214,6 +214,7 @@ class Player(BasePlayer):
     time_spent = models.FloatField()
     paying_round = models.IntegerField()
     payoff_final = models.IntegerField()
+    payoff_euro = models.FloatField()
 
     def payoff_final_f(self):
         self.paying_round = random.randint(1, Constants.num_rounds)
