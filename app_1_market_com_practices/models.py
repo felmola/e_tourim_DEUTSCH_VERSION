@@ -99,7 +99,7 @@ class Group(BaseGroup):
                     p.payoff = int(Constants.endowment)
             else:
                 p.payoff = int(Constants.endowment)
-                p.payoff += int((p.ask_price_fin - p.seller_valuation)*int(p.sold) - int(p.see_list)*Constants.see_list_cost)
+                p.payoff += int(p.ask_price_fin - p.seller_valuation)*int(p.sold) - int(p.see_list)*int(Constants.see_list_cost)
 
     def who_purchased(self):
         sellers =[]
@@ -179,7 +179,7 @@ class Player(BasePlayer):
 
     see_list = models.BooleanField(initial = False)
     com_practice = models.IntegerField(choices = [
-        [1, "Bester-Preis-Garantie"], [2,"Referenzpreis"], [3, "Referenzpreis (+20 ECU)"], [4, "Drip Pricing"], [5, "None"]
+        [1, "Bester-Preis-Garantie"], [2,"Referenzpreis"], [3, "Referenzpreis (+20 ECU)"], [4, "Drip Pricing"], [5, "Kein"]
     ])
     ask_price_fin = models.IntegerField()
 
