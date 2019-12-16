@@ -18,7 +18,11 @@
         <tbody>
             <tr>
                 <td>Rol</td>
-                <td>{{ role }}</td>
+                {% if player.role == "buyer" %}
+                <td> Käufer </td>
+                {% else %}
+                <td> Verkäufer </td>
+                {% endif %}
             </tr>
             <tr>
                 <td>Ihre ID: </td>
