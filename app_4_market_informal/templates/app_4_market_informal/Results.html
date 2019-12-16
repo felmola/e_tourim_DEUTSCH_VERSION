@@ -53,11 +53,15 @@
     {% endif %}
 {% else %}
             {% if player.sold == False %}
+
             Sie haben kein touristisches Pauschalangebot verkauft. Aus diesem Grund beträgt Ihr Profit für diese Runde 0 ECU..
+
             {% else %}
+
             Sie haben Ihr touristisches Pauschalangebot verkauft.
             Zudem haben {{player.times_reported}} Käufer sie gemeldet. Aus diesem Grund müssen Sie {{ player.penalty }} ECU Strafe zahlen.
             Daher beträgt Ihr Profit in dieser Runde: {{player.payoff |c}}.
+
             {% endif %}
 
 {% endif %}
