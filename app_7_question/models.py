@@ -25,68 +25,60 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     gender = models.IntegerField(
-        label = 'What is your gender?',
-        choices = [(0, "Female"),
-                   (1, "Male"),
-                   (2,"Other")],
+        label = 'Geschlecht: ',
+        choices = [(0, "Frauen"),
+                   (1, "Männer"),
+                   (2,"Andere")],
         widget = widgets.RadioSelectHorizontal
     )
 
     age = models.IntegerField(
-        label = 'What is your age?',
+        label = 'Alter: ',
         min = 18, max = 70
     )
 
     country = models.StringField(
-        label = "What is your country of origin?",
+        label = "Aus welchem Land stammen Sie?",
     )
 
     education = models.IntegerField(
-        label = 'What is your education level (maximum degree of completed studies)?',
-        choices = [(1, "No schooling"),
-                   (2, "Primary School"),
-                   (3, "Technical / Vocational school"),
-                   (4, "Secondary School (High School)"),
-                   (5, "University Degree (2-5 years)"),
-                   (6, "Post-graduate Degree (Master / Ph.D.)")]
+        label = 'Welchen Bildungsgrad haben Sie (höchster erreichter Abschluss)?',
+        choices = [(1, "Keine Schulbildung"),
+                   (2, "Grund- und Hauptschule"),
+                   (3, "Berufs(-fach-)schule / -ausbildung"),
+                   (4, "Oberstufe (Abitur)"),
+                   (5, "Universitärer Abschluss (Bachelor)"),
+                   (6, "Höheres Studium (Master / Dr.)")]
     )
 
     civil_status = models.IntegerField(
-        label = 'What is your civil status',
-        choices = [(1, 'Single (Never married)'),
-                   (2, 'Living with partner'),
-                   (3, 'Married'),
-                   (4, 'Separated / Divorced'),
-                   (5, 'Widower')]
+        label = 'Was ist Ihr Personenstand?',
+        choices = [(1, 'Single (nie verheiratet)'),
+                   (2, 'Mit Partner/in zusammenlebend'),
+                   (3, 'Verheiratet'),
+                   (4, 'Getrennt / geschieden'),
+                   (5, 'Verwitwet')]
     )
 
     income = models.IntegerField(
-        label= 'What is your approximate gross (brutto) annual income level in your household?',
+        label= 'Nur zu statistischen Klassifikationszwecken: Was ist das Bruttojahreseinkommen in Ihrem Haushalt gemäß den folgenden Kategorien?',
         choices = [
             (1, '0 - 20.000 Euro'),
             (2,'20.001 - 40.000 Euro'),
             (3,'40.001 - 60.000 Euro'),
             (4,'60.001 - 80.000 Euro'),
             (5,'80.001 - 100.000 Euro'),
-            (6,'Above 100.000 Euro')])
+            (6,'Über 100.000 Euro')])
 
     online_frequency = models.IntegerField(
-        label = 'How often do you generally access the Internet?',
+        label = 'Wie häufig gehen Sie allgemein ins Internet?',
         choices = [
-            (1, 'Continuously/On an hourly basis'),
-            (2, 'Several times per day'),
-            (3, 'Once per day'),
-            (4, 'Several times per week'),
-            (5, 'Once per week'),
-            (6, 'Less often than once per week')
+            (1, 'Durchgängig / jede Stunde'),
+            (2, 'Mehrmals pro Tag'),
+            (3, 'Einmal pro Tag'),
+            (4, 'Mehrmals pro Woche'),
+            (5, 'Einmal pro Woche'),
+            (6, 'Seltener als einmal pro Woche')
         ]
     )
 
-    online_purchase = models.IntegerField(
-        label = 'When buying products and services related to traveling (airplane / train tickets, hotel booking, travel'
-                ' packages, etc.) Do you often use the internet for this purpose?',
-        choices = [
-            (0, 'No'),
-            (1, 'Yes')
-        ]
-    )
