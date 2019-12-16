@@ -55,7 +55,7 @@
             {% if player.audited == True %}
                 {% if player.bad_practice == True %}
                     <p> Zudem wurde durch eine Überprüfung entdeckt, dass Sie eine Handelspraxis wahrheitswidrig angewendet haben.
-                        Aus diesem Grund müssen Sie {{Constants.punisment }} ECU Strafe zahlen. Daher beträgt Ihr Profit in dieser Runde {{player.payoff|c}}</p>
+                        Aus diesem Grund müssen Sie {{Constants.punishment }} ECU Strafe zahlen. Daher beträgt Ihr Profit in dieser Runde {{player.payoff|c}}</p>
                 {% else %}
                     <p> Zudem wurde durch eine Überprüfung entdeckt, dass Sie keine Handelspraxis wahrheitswidrig angewendet haben</p>
                 {% endif %}

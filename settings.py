@@ -49,7 +49,7 @@ SESSION_CONFIGS = [
         name='bot_testing',
         display_name="Testing bots",
         num_demo_participants=20,
-        app_sequence=['app_4_market_informal'],
+        app_sequence=['app_3_market_formal_sanction'],
 #        app_sequence=['app_7_question'],
         use_browser_bots=True, ),
 
