@@ -97,10 +97,13 @@ class Group(BaseGroup):
                     p.payoff += int(p.participant.vars['valuations_package'].get(p.package_purchased)) - int(p.paid) - int(p.report)*int(Constants.report_price) if p.participant.vars['valuations_package'].get(p.package_purchased) - p.paid > 0 else - int(p.report)*Constants.report_price
                     p.package_purchased = p.package_purchased if p.participant.vars['valuations_package'].get(p.package_purchased) - p.paid > 0 else 0
                     the_seller.sold = True if p.package_purchased > 0 else False
+                    print("### SOLD: " + str(the_seller.sold))
                 else:
                     p.package_purchased = 0
                     p.payoff = int(Constants.endowment)
-            else:
+
+        for p in self.get_players():
+            if p.role() == "seller":
                 p.payoff = int(Constants.endowment)
                 p.payoff += (int(p.ask_price_fin) - int(p.seller_valuation))*int(p.sold) - int(p.see_list)*int(Constants.see_list_cost)
 
