@@ -84,12 +84,7 @@ class buyer(Page):
         )
 class sanction(Page):
     form_model = 'player'
-    
-    def get_form_fields(self):
-        for player in self.group.get_players():
-            if player.role() == "seller" and player.com_practice < 5:
-                return ['report_seller']
-
+    form_fields = ['report_seller']
 
     def is_displayed(self):
         return self.player.report is True

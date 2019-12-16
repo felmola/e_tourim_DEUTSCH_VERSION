@@ -23,7 +23,7 @@ Markets
 
 class Constants(BaseConstants):
     name_in_url = 'app_4_informal'
-    players_per_group = 20
+    players_per_group = 2
     num_rounds = 5
     endowment = 25
     see_list_cost = 1
@@ -82,6 +82,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
 
+    reported = models.BooleanField(initial = False)
     penalty_bonus = models.IntegerField()
 
     def set_payoff(self):
@@ -157,6 +158,7 @@ class Group(BaseGroup):
             if p.role() == "buyer":
                 if p.report_seller > 0:
                     sellers_reported.append(p.report_seller)
+                    self.reported = True
         report_dict = dict(collections.Counter(sellers_reported))
 
         for key, val in report_dict.items():
