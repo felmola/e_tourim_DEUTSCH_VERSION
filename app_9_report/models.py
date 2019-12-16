@@ -39,7 +39,7 @@ class Subsession(BaseSubsession):
             row['market_agent_role'] = p.participant.vars.get('role')
             row['market_paying_round'] = p.participant.vars.get('paying_round')
             row['market_payoff_final'] = p.participant.vars.get('payoff_final')
-            row['market_payoff_euro'] = p.participant.vars.get('payoff_final')*1.2
+            row['market_payoff_euro'] = p.participant.vars['payoff_final']*1.2
 
             table_rows.append(row)
         return {'table_rows': table_rows}
