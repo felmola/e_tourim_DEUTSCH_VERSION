@@ -23,10 +23,12 @@ Markets
 
 class Constants(BaseConstants):
     name_in_url = 'app_4_informal'
-    players_per_group = 2
+    players_per_group = 20
     num_rounds = 5
-    endowment = 25
+    endowment = 30
     see_list_cost = 1
+    ecu_eur = 1.2
+
 
     packages = [i for i in range(1, 6)]
 
@@ -97,12 +99,15 @@ class Group(BaseGroup):
                     p.payoff += int(p.participant.vars['valuations_package'].get(p.package_purchased)) - int(p.paid) - int(p.report)*int(Constants.report_price) if p.participant.vars['valuations_package'].get(p.package_purchased) - p.paid > 0 else - int(p.report)*Constants.report_price
                     p.package_purchased = p.package_purchased if p.participant.vars['valuations_package'].get(p.package_purchased) - p.paid > 0 else 0
                     the_seller.sold = True if p.package_purchased > 0 else False
+                    print("### SOLD: " + str(the_seller.sold))
                 else:
                     p.package_purchased = 0
                     p.payoff = int(Constants.endowment)
-            else:
+
+        for p in self.get_players():
+            if p.role() == "seller":
                 p.payoff = int(Constants.endowment)
-                p.payoff += int(p.ask_price_fin - p.seller_valuation)*int(p.sold) - int(p.see_list)*int(Constants.see_list_cost)
+                p.payoff += (int(p.ask_price_fin) - int(p.seller_valuation))*int(p.sold) - int(p.see_list)*int(Constants.see_list_cost)
 
     def who_purchased(self):
         sellers =[]
@@ -207,7 +212,7 @@ class Player(BasePlayer):
 
     see_list = models.BooleanField(initial = False)
     com_practice = models.IntegerField(choices = [
-        [1, "Bester-Preis-Garantie"], [2,"Referenzpreis"], [3, "Referenzpreis (+20 ECU)"], [4, "Drip Pricing"], [5, "None"]
+        [1, "Bester-Preis-Garantie"], [2,"Referenzpreis"], [3, "Referenzpreis (+20 ECU)"], [4, "Drip Pricing"], [5, "Kein"]
     ])
     ask_price_fin = models.IntegerField()
 
@@ -259,13 +264,16 @@ class Player(BasePlayer):
 
     paying_round = models.IntegerField()
     payoff_final = models.IntegerField()
+    payoff_euro = models.FloatField()
     discount = models.IntegerField()
 
     def payoff_final_f(self):
         self.paying_round = random.randint(1, Constants.num_rounds)
         self.payoff_final = int(self.in_round(self.paying_round).payoff)
+        self.payoff_euro = self.payoff_final * Constants.ecu_eur
         self.participant.vars['paying_round'] = self.paying_round
         self.participant.vars['payoff_final'] = self.payoff_final
+        self.participant.vars['payoff_euro'] = self.payoff_euro
         self.session.vars['endowment'] = Constants.endowment
         print("##########################", self.paying_round)
         print("##########################", self.payoff_final)
