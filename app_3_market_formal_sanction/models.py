@@ -102,7 +102,7 @@ class Group(BaseGroup):
         for p in self.get_players():
             if p.role() == "seller":
                 p.payoff = int(Constants.endowment)
-                p.payoff += int((p.ask_price_fin - p.seller_valuation))*int(p.sold) - int(p.see_list)*int(Constants.see_list_cost) - int(p.bad_practice)*int(Constants.punishment)
+                p.payoff += (int(p.ask_price_fin) - int(p.seller_valuation))*int(p.sold) - int(p.see_list)*int(Constants.see_list_cost) - int(p.bad_practice)*int(Constants.punishment)
 
 
     def who_purchased(self):
