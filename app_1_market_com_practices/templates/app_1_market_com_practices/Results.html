@@ -48,7 +48,7 @@
                 <td>{{ price|c}} </td>
             </tr>
     {% else %}
-            <p>Sie waren zu langsam. Aus diesem Grund beträgt Ihr Profit für diese Runde: 0 ECU.<br> </p>
+            <p>Sie waren zu langsam. Aus diesem Grund beträgt Ihr Profit für diese Runde: {{ player.payoff }} ECU.<br> </p>
     {% endif %}
 {% else %}
             {% if player.sold == False %}
