@@ -52,9 +52,9 @@
     {% endif %}
 {% else %}
             {% if player.sold == False %}
-            Sie haben kein touristisches Pauschalangebot verkauft. Aus diesem Grund beträgt Ihr Profit für diese Runde: {{player.payoff |c}}.
+            <p>Sie haben kein touristisches Pauschalangebot verkauft. Aus diesem Grund beträgt Ihr Profit für diese Runde: {{player.payoff |c}}. <br> </p>
             {% else %}
-            Sie haben Ihr touristisches Pauschalangebot verkauft. Aus diesem Grund beträgt Ihr Profit in dieser Runde: {{player.payoff |c}}
+            <p>Sie haben Ihr touristisches Pauschalangebot verkauft. Aus diesem Grund beträgt Ihr Profit in dieser Runde: {{player.payoff |c}} <br> </p>
             {% endif %}
 
 {% endif %}
