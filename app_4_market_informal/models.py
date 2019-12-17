@@ -23,10 +23,12 @@ Markets
 
 class Constants(BaseConstants):
     name_in_url = 'app_4_informal'
-    players_per_group = 2
+    players_per_group = 20
     num_rounds = 5
     endowment = 30
     see_list_cost = 1
+    ecu_eur = 1.2
+
 
     packages = [i for i in range(1, 6)]
 
@@ -262,13 +264,16 @@ class Player(BasePlayer):
 
     paying_round = models.IntegerField()
     payoff_final = models.IntegerField()
+    payoff_euro = models.FloatField()
     discount = models.IntegerField()
 
     def payoff_final_f(self):
         self.paying_round = random.randint(1, Constants.num_rounds)
         self.payoff_final = int(self.in_round(self.paying_round).payoff)
+        self.payoff_euro = self.payoff_final * Constants.ecu_eur
         self.participant.vars['paying_round'] = self.paying_round
         self.participant.vars['payoff_final'] = self.payoff_final
+        self.participant.vars['payoff_euro'] = self.payoff_euro
         self.session.vars['endowment'] = Constants.endowment
         print("##########################", self.paying_round)
         print("##########################", self.payoff_final)
