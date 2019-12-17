@@ -99,6 +99,12 @@ class Group(BaseGroup):
                         p.package_purchased = 0
                         p.payoff = int(Constants.endowment)
 
+        for p in self.get_players():
+            if p.role() == "seller":
+                p.payoff = int(Constants.endowment)
+                p.payoff += int((p.ask_price_fin - p.seller_valuation))*int(p.sold) - int(p.see_list)*int(Constants.see_list_cost) - int(p.bad_practice)*int(Constants.punishment)
+
+
     def who_purchased(self):
         sellers =[]
         for p in self.get_players():
